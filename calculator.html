@@ -1,0 +1,108 @@
+<!DOCTYPE html>    
+<meta charset="UTF-8">
+<meta name="published" content="sathya">
+<meta name="description" content="please fill in the below forms and application">
+<meta name="viewport" content="width=device-width initial-scale=1.0">
+<html>
+<head>
+<title>calculator</title>
+<style>
+*{
+box-sizing:border-box;
+text-align:center;
+background-color:#442457;
+}
+.container{
+border:2px solid black;
+display:inline-block;
+}
+#values{
+background-color: #e9ceff;
+}
+input{
+padding:20px;
+font-size:20px;
+width:100%;
+}
+table{
+text-align:center;
+}
+td{
+border:1px solid black;
+background-color: #fa66cc;
+}
+button{
+border:none;
+outline:none;
+box-shadow:0 0 4px black;
+background-color:yellow;
+padding:1.5em;
+margin:2em;
+cursor:pointer;
+font-size:1rem;
+}
+</style>
+</head>
+<body>
+       
+  <div class="container">   
+	   <input type="text" id="values">
+       <table>
+	   <tr>                              
+	     <td><button>+</button></td>
+		 <td><button>-</button></td>
+		 <td><button>*</button></td>
+		 <td><button>/</button></td>
+	   </tr>
+	   <tr>
+	     <td><button>=</button></td>
+		 <td><button>7</button></td>
+		 <td><button>8</button></td>
+		 <td><button>9</button></td>
+	   </tr>
+	   <tr>
+	     <td><button>c</button></td>
+		 <td><button>6</button></td>
+		 <td><button>5</button></td>
+		 <td><button>4</button></td>
+	   </tr>
+	   <tr>
+	     <td><button>0</button></td>
+		 <td><button>3</button></td>
+		 <td><button>2</button></td>
+		 <td><button>1</button></td>
+	   </tr>
+       </table>
+ </div>  
+
+<script>
+  var values=document.getElementById("values");
+  let button=document.querySelectorAll("button");
+  
+  let srcvalues = "";
+  
+  for(var i=0; i < button.length; i++){
+  button[i].addEventListener('click',(e)=> {
+      var enteredNumber = e.target.innerHTML;
+	  //console.log(enteredNumber);
+	 
+    if (enteredNumber=='c'){
+	   values.value = '';
+	   srcvalues = '';
+	   }
+	 else if(enteredNumber =='='){
+	      values.value = eval(srcvalues);
+		  }
+		  else{
+		  srcvalues += enteredNumber;
+		  console.log(enteredNumber);
+		  values.value = srcvalues;
+		  }
+	 })
+  };
+  
+</script>
+</body>
+</html>
+
+
